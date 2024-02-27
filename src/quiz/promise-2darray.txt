@@ -1,1 +1,11 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+The sum2DArray() function is called with array2D as the input, initiating an asynchronous operation. "Sum called ..." is logged, indicating the start of the process. Regardless of the input being an array or not, "returning from sum" is logged synchronously within the function.
+
+For sumPromise1, which is called with a valid array input, the asynchronous operation calculates the sum of the 2D array elements inside a setTimeout function with a delay of 0 milliseconds. Upon completion, "resolving ..." is logged, and the promise resolves with the computed sum.
+
+For sumPromise2, invoked with a non-array input, the function recognizes this, logs "rejecting ...", and rejects the promise with the message 'BAD INPUT: Expected array as input'.
+
+The asynchronous nature of the operations ensures that "resolving ..." or "rejecting ..." messages are logged after the current event loop iteration, which is why they might not be immediately visible.
+
+In summary, the function asynchronously processes the input array, resolving the promise with the sum when the input is valid, and rejecting the promise with an error message when the input is not an array. However, it's noted that error handling for rejections is not handled properly, leading to uncaught exceptions.
