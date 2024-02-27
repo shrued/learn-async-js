@@ -35,6 +35,7 @@ const server = http.createServer((req, res) => {
 
     // Check if the request is for the specified endpoint
     if (pathname.startsWith('/incidents/')) {
+        console.log("here")
         // Extract parameters from the URL
         const [, , road, location, direction, id] = pathname.split('/');
         // Check if all parameters are provided
@@ -46,7 +47,7 @@ const server = http.createServer((req, res) => {
             })));
         }
         else {
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.writeHead(400, { 'Content-Type': 'text/plain' });
             res.end('Endpoint not found');
         }
     } else {
