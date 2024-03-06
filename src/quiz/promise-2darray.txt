@@ -1,1 +1,5 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+The sum2DArray function is built to handle 2-dimensional arrays. It asynchronously calculates the total sum of all elements in the array. The function returns a promise to signal the status of this calculation. A valid array input will trigger the promise to resolve, returning the computed sum.  But if the input isn't a proper array, the promise rejects, providing an error message about the incorrect input.
+
+To see sum2DArray in action, let's create two promises. sumPromise1 will use a valid array and should resolve with the calculated sum. sumPromise2 will intentionally have a non-array input, demonstrating promise rejection. We'll use .then() and .catch() to handle the outcomes of each promise. After that, we'll log the promises and their states to the console to observe the results.
